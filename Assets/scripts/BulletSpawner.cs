@@ -6,7 +6,7 @@ public class BulletSpawner : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public float spawnInterval = 0.5f;
-    public float bulletSpeed = 10f; // 추가: 총알 속도 변수
+    public float bulletSpeed = 10f; 
 
     private float timer = 0f;
 
@@ -24,7 +24,7 @@ public class BulletSpawner : MonoBehaviour
     private void SpawnBullet()
     {
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-        Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>(); // 추가: Rigidbody 컴포넌트 가져오기
-        bulletRigidbody.velocity = transform.forward * bulletSpeed; // 총알 속도 설정
+        Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>(); 
+        bulletRigidbody.velocity = transform.forward * bulletSpeed; 
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterMove : MonoBehaviour
 {
@@ -76,7 +77,11 @@ public class CharacterMove : MonoBehaviour
 
         // 아이템 개수도 초기화합니다.
         itemCountController.ResetItemCount();
+
+        // 'Stage1' 씬으로 이동합니다.
+        SceneManager.LoadScene("Stage1");
     }
+
 
     void ReactivateItemCans()
     {
@@ -84,6 +89,15 @@ public class CharacterMove : MonoBehaviour
         {
             GameObject itemObject = pair.Key;
             itemObject.SetActive(true);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Portal"))
+        {
+            // 충돌한 오브젝트가 포탈인 경우 다음 스테이지로 이동
+            SceneManager.LoadScene("Stage1");
         }
     }
 }
