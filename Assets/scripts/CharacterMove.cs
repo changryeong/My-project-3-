@@ -78,8 +78,8 @@ public class CharacterMove : MonoBehaviour
         // 아이템 개수도 초기화합니다.
         itemCountController.ResetItemCount();
 
-        // 'Stage1' 씬으로 이동합니다.
-        SceneManager.LoadScene("Stage1");
+       
+      
     }
 
 
@@ -92,12 +92,4 @@ public class CharacterMove : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Portal"))
-        {
-            // 충돌한 오브젝트가 포탈인 경우 다음 스테이지로 이동
-            SceneManager.LoadScene("Stage1");
-        }
-    }
 }
